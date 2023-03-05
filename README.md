@@ -1,2 +1,25 @@
-# IntroDiscordBot
-This is a Discord bot designed to play a custom audio file whenever a user joins a voice channel in your server. 
+# Discord Bot
+
+This is a Discord bot that plays a sound when a user joins a voice channel.
+
+## Requirements
+
+- Python 3.x
+- discord.py
+
+## Installation
+
+1. Clone this repository to your local machine.
+2. Install the required dependencies by running `pip install -r requirements.txt`.
+3. Create a new Discord bot account and get the bot token.
+4. Copy the token to the `config.py` file.
+5. Run the bot by running `python bot.py`.
+
+## Usage
+
+- When a user joins a voice channel, the bot will play a sound in that channel.
+- To stop the bot, type `!stop` in any text channel.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
