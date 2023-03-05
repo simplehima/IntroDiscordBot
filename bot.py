@@ -29,7 +29,7 @@ async def on_voice_state_update(member, before, after):
             try:
                 vc = await channel.connect()
                 connected_voice_channels[channel.guild.id] = vc
-                vc.play(discord.FFmpegPCMAudio('nohooon.mp3'))
+                vc.play(discord.FFmpegPCMAudio('file.mp3')) #change file.mp3 with your file.mp3
                 while vc.is_playing():
                     await asyncio.sleep(1)
                 await vc.disconnect()
