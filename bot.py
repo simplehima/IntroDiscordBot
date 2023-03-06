@@ -4,7 +4,7 @@ from discord.ext import commands
 from discord.voice_client import VoiceClient
 import config
 
-intents = discord.Intents.all()
+intents = discord.Intents.default()
 intents.members = True
 intents.guild_messages = True
 intents.voice_states = True
@@ -42,13 +42,12 @@ async def on_voice_state_update(member, before, after):
             print(f"Failed to connect to voice channel: {e}")
     elif before.channel is not None and after.channel is None:
         # Someone left the voice channel
-        channel = before.channel
-        voice = connected_voice_channels.get(channel.guild.id)
+        voice = connected_voice_channels.get(before.channel.guild.id)
         if voice and voice.is_connected():
             voice.play(discord.FFmpegPCMAudio('file2.mp3'))
             while voice.is_playing():
                 await asyncio.sleep(1)
             await voice.disconnect()
-            del connected_voice_channels[channel.guild.id]
+            del connected_voice_channels[before.channel.guild.id]
 
 client.run(config.BOT_TOKEN)
