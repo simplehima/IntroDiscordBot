@@ -14,7 +14,7 @@ This is a Discord bot that plays a sound when a user joins a voice channel.
 3. Create a new Discord bot account and get the bot token.
 4. Copy the token to the `config.py` file.
 5. Place Your File.mp3 in same folder of the bot.py
-6. Replace 'file.mp3' with the name of the mp3 file you want to play in line 32.
+6. Replace `'file.mp3'` with the name of the mp3 file you want to play in line 32.
 7. Run the bot by running `python bot.py`.
 
 ## Usage
