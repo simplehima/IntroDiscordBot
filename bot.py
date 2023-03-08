@@ -39,11 +39,13 @@ async def on_voice_state_update(member, before, after):
                 vc.play(discord.FFmpegPCMAudio('file1.mp3'))
                 while vc.is_playing():
                     await asyncio.sleep(1)
+                await vc.disconnect()
+                del connected_voice_channels[channel.guild.id]
+                played_first_file.remove(channel.guild.id)
             else:
                 await asyncio.sleep(0.5)  # Wait half a second before playing the second file
-            await vc.disconnect()
-            del connected_voice_channels[channel.guild.id]
-            played_first_file.remove(channel.guild.id)
+                await vc.disconnect()
+                del connected_voice_channels[channel.guild.id]
         except asyncio.TimeoutError:
             print("Connection to voice channel timed out.")
         except Exception as e:
